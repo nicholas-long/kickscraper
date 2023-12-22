@@ -18,7 +18,7 @@ The output of the script is JSON data representing the current state of the user
 The API is protected by cloudflare.
 To get around cloudflare's protection of the API endpoints, I used the `cloudscraper` library.
 
-The `cloudscraper` libarry is intended for bypassing cloudflare challenges, but updates to cloudflare could mean that it starts failing.
+The `cloudscraper` library is intended for bypassing cloudflare challenges, but updates to cloudflare could mean that it starts failing.
 Since it may not remain a stable and permanent solution for bypassing cloudflare, it might be worth looking into other options for scraping.
 Here is a cloudflare web scraper utility service that could be a more permanent solution: https://www.scraperapi.com/blog/scrape-cloudflare-protected-websites-with-python/
 
