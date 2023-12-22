@@ -1,10 +1,11 @@
 # KickScraper
 
-This script requests data from the unpublished kick.com API.
-The input of the script is the user's slug name on kick.com, which is an indentifier used to create URLs within kick's API.
-Additionally, APIs are called to return live statistics for viewer and follower counts.
+This program requests data from the unpublished kick.com API.
+The input of the program is the user's slug name on kick.com, which is an indentifier used to create URLs within kick's API.
+Additionally, APIs are called to retrieve a list of clips and return live statistics for viewer and follower counts.
+Example output json from this program has been included for reference.
 
-The output of the script is JSON data representing the current state of the user including:
+The output of the program is JSON data representing the current state of the user including:
 - Username
 - User profile pic
 - User profile bio
@@ -14,6 +15,7 @@ The output of the script is JSON data representing the current state of the user
 - User’s streaming status (offline vs. live)
 - User followers
 - User clips
+
 
 The API is protected by cloudflare.
 To get around cloudflare's protection of the API endpoints, I used the `cloudscraper` library.
