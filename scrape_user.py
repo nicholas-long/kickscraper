@@ -78,24 +78,6 @@ def get_data(username):
 
     return output
 
-# - [x] Username
-# - [x] User profile pic
-# - [x] User profile bio
-# - [x] User profile banner
-# - [x] User socials
-# - [x] User videos
-# - [x] User clips
-# - [x] User’s streaming status (offline vs. live)
-# - [x] User followers
-# - [ ] User following (who the user is following)
-# - [ ] User subscribers
-#   - Date subscribed
-#   - Subscription status
-#   - Subscription expiration date
-#   - Subscriber name
-#   - Subscriber profile pic
-# - [ ] User gifted subscriptions
-
 if __name__ == '__main__':
     input_username = sys.argv[1]
     print(json.dumps(get_data(input_username)))
