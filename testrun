@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker build --no-cache . -t kickscraper
+docker run --rm kickscraper nickmercs
