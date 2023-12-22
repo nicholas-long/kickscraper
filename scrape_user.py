@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import requests
-from bs4 import BeautifulSoup
 import json
 import cloudscraper # need to use cloudscraper because the APIs are protected by cloudflare
 import sys
@@ -23,11 +22,12 @@ def get_data(username):
 
     # get live count of followers of stream live_followers
     url = f"https://api.kick.com/channels/{userid}/followers-count"
-    #print(url)
     html = scraper.get(url)
     if html.status_code != 200:
-        live_followers = data['followersCount'] # use this backup data
+        # if the request failed, use the followers count in the main data blob
+        live_followers = data['followersCount']
     else:
+        # parse live statistics from API
         temp = json.loads(html.text)
         live_followers = temp['data']['count']
     output["followers"] = live_followers
@@ -36,6 +36,7 @@ def get_data(username):
     url = f"https://api.kick.com/private/v0/channels/{userid}/viewer-count"
     html = scraper.get(url)
     if html.status_code != 200:
+        # this endpoints returns 400 if they are not streaming
         live_viewers = 0
     else:
         temp = json.loads(html.text)
@@ -80,4 +81,5 @@ def get_data(username):
 
 if __name__ == '__main__':
     input_username = sys.argv[1]
+    # if the script fails then it should return a json object with a descriptive error
     print(json.dumps(get_data(input_username)))
